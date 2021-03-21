@@ -1,0 +1,15 @@
+<h1><%= @student.name %> Details: </h1>
+<h3>Mod: <%= @student.mod %></h3>
+<% if @ducks %>
+  <h3> Ducks: </h3>
+  <% @ducks.each do |duck| %>
+    <ul>
+      <li><%= link_to duck.name, duck_path(duck) %></li>
+    </ul>  
+  <% end %>
+<% end %>
+<div>
+  <%= button_to "Edit Student", edit_student_path(@student), method: :get %><br>
+  <%= button_to "Delete Student", student_path(@student), method: :delete, data: { confirm: "Are you sure?" } %><br>
+  <%= button_to "Back to all students", students_path, method: :get %>
+</div>
