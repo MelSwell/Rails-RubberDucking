@@ -1,0 +1,10 @@
+<h1><%= @duck.name %> Details:</h1>
+<h2>Description: <%= @duck.description %></h2>
+<% if @student %>
+  <h2>Student: <%= link_to @student.name, student_path(@student.id) %></h2>
+<% end %>
+<div>
+  <%= button_to "Edit Duck", edit_duck_path(@duck), method: :get %><br>
+  <%= button_to "Delete Duck", duck_path(@duck), method: :delete, data: { confirm: "Are you sure?" } %><br>
+  <%= button_to "Back to all ducks", ducks_path, method: :get %>
+</div>
